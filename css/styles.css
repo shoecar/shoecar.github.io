@@ -1,0 +1,45 @@
+* {
+  font-family: Helvetica;
+  background-color: #eee;
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  background-color: #f7f7f7;
+  padding: 5px;
+  text-align: center;
+}
+
+a:visited {
+  color: #333;
+}
+
+a:hover {
+  background-color: lightblue;
+}
+
+.project-wrapper {
+  width: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.project-wrapper h1 {
+  text-align: center;
+}
+
+.project-list {
+  font-size: 20px;
+}
+
+.project-list > li {
+  margin: 10px;
+  display:block;
+}
