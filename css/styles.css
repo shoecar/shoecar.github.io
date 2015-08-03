@@ -1,45 +1,111 @@
-* {
-  font-family: Helvetica;
-  background-color: #eee;
-  color: #333;
-}
-
-ul {
-  list-style-type: none;
-}
-
 a {
-  text-decoration: none;
-  color: #333;
-  display: block;
-  background-color: #f7f7f7;
-  padding: 5px;
-  text-align: center;
-}
-
-a:visited {
-  color: #333;
+  color: #eee;
 }
 
 a:hover {
-  background-color: lightblue;
+  color: #aaa;
+  text-decoration: none;
 }
 
-.project-wrapper {
-  width: 400px;
-  margin: 0 auto;
-  position: relative;
+html,
+body {
+  height: 100%;
 }
-
-.project-wrapper h1 {
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 24px;
+  line-height: 100%;
+  color: #eee;
   text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.bg-overlay {
+	background: transparent url('../img/overlay.png');
+	z-index: -1;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+
+.bg {
+	position: fixed;
+	top: 0%;
+  right: 0%;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
+}
+
+.social {
+  font-size: 28px;
+}
+
+.social a {
+  margin: 10px;
+}
+
+.description {
+  margin: 20px 0;
+}
+
+.portrait {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #eee;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+  margin-bottom: 20px;
+  transition: 2s ease;
+}
+
+.portrait:hover {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.projects {
+  font-weight: 300;
+  margin-top: 100px;
 }
 
 .project-list {
-  font-size: 20px;
+  list-style-type: none;
+  color: #eee;
 }
 
-.project-list > li {
-  margin: 10px;
-  display:block;
+.project-list a {
+  font-size: 16px;
+  display: block;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+
+
+@media (min-width: 768px) {
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .cover-container {
+    width: 700px;
+  }
 }
