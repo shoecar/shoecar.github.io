@@ -9,14 +9,11 @@
 
     <title>Tad Schukar</title>
 
-    <!-- fonts -->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500' rel='stylesheet' type='text/css'>    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500' rel='stylesheet' type='text/css'>    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <!-- favicon -->
     <link rel="shortcut icon" href="img/favicon2.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon2.ico" type="image/x-icon">
 
-    <!-- css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
@@ -36,7 +33,7 @@
         </div>
 
         <div class="description">
-          <img src="img/me.jpg" alt="Me!" class="portrait img-circle"/>
+          <img src="img/me2.jpg" alt="Me!" class="portrait img-circle"/>
           <p >Hello, my name is Tad Schukar,<br>
             I'm a full-stack web developer<br>
             living in San Francisco</p>
@@ -45,45 +42,14 @@
         <div class="projects">
           <p>Projects</p>
           <div class="project-list">
-            <div><a href="" onclick="openWin()" class="hvr-underline">Fictional Landing Page</a></div>
-            <div><a href="http://shoecar.github.io/tic-tac-toe/" target="_blank" class="hvr-underline">Tic Tac Toe</a></div>
+            <div><a href="http://pictur.xyz" target="_blank" class="hvr-underline">Pictur</a></div>
+            <div><a href="http://shoecar.github.io/avalanche/" target="_blank" class="hvr-underline">Avalanche</a></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-      var myWindow;
-
-      function openWin() {
-        myWindow = window.open("http://shoecar.github.io/skyscraper-design", "", "width=1200, height=630");
-      }
-
-      $(function () {
-        var pic = $('.portrait');
-        var gray = false;
-
-        var loop = function () {
-          gray = gray ? false : true;
-          gray ? grayscale(pic, 0) : grayscale(pic, 1);
-        }
-
-        var grayscale = function (target, value) {
-          target
-            .css('filter', 'grayscale(' + value + ')')
-            .css('webkitFilter', 'grayscale(' + value + ')')
-            .css('mozFilter', 'grayscale(' + value + ')')
-            .css('oFilter', 'grayscale(' + value + ')')
-            .css('msFilter', 'grayscale(' + value + ')');
-        }
-
-        // pic.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", loop);
-        // grayscale(pic, 1);
-      });
-    </script>
   </body>
 </html>

@@ -40,11 +40,11 @@ body {
 }
 
 .social a {
-  margin: 10px;
+  margin: 0 10px;
 }
 
 .description {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .portrait {
