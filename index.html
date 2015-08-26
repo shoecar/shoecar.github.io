@@ -19,7 +19,6 @@
   </head>
 
   <body>
-
     <div class="site-wrapper">
       <img src="img/goldengate-bg.jpg" alt="Golden Gate Bridge" class="bg"/>
       <div class="bg-overlay"></div>
@@ -34,23 +33,39 @@
 
         <div class="description">
           <img src="img/me2.jpg" alt="Me!" class="portrait img-circle"/>
-          <p >Hello, my name is Tad Schukar,<br>
+          <p >Hello, my name is Tad Schukar.<br>
             I'm a full-stack web developer<br>
-            living in San Francisco</p>
+            living in San Francisco.</p>
         </div>
 
-        <div class="projects">
-          <p>Projects</p>
-          <div class="project-list">
-            <div><a href="http://pictur.xyz" target="_blank" class="hvr-underline">Pictur</a></div>
-            <div><a href="http://shoecar.github.io/avalanche/" target="_blank" class="hvr-underline">Avalanche</a></div>
-            <div><a href="https://github.com/shoecar/chess" target="_blank" class="hvr-underline">Chess</a></div>
+
+        <div class="row info">
+          <div class="col-xs-12 col-sm-2 col-sm-offset-4">
+            <div class="projects">
+              <p>Projects</p>
+              <div class="project-list">
+                <div><a href="http://pictur.xyz" target="_blank" class="hvr-underline">Pictur</a></div>
+                <div><a href="http://shoecar.github.io/avalanche/" target="_blank" class="hvr-underline">Avalanche</a></div>
+                <div><a href="https://github.com/shoecar/chess" target="_blank" class="hvr-underline">Chess</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-2">
+            <a href="files/Resume-TadSchukar.pdf" target="_blank" class="resume hvr-underline">Resume</a>
           </div>
         </div>
+
+
       </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $('a').click(function (e) {
+          e.currentTarget.blur();
+        });
+    </script>
   </body>
 </html>
