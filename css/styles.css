@@ -48,13 +48,11 @@ body {
 }
 
 .img-holder {
-  width: 200px;
-  height: 200px;
+  width: auto;
+  height: 150px;
   border: 2px solid #eee;
-  -webkit-filter: grayscale(0%);
-  filter: grayscale(0%);
   margin-bottom: 20px;
-  transition: 10s ease;
+  transition: 200ms ease-out;
   -webkit-box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.5);
   box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.5);
@@ -64,11 +62,11 @@ body {
   margin-top: 30px;
 }
 
-.resume {
+#resume {
   font-weight: 300;
   text-decoration: none !important;
 }
-.resume:hover {
+#resume:hover {
   color: #eee;
 }
 
