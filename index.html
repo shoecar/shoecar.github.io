@@ -73,12 +73,16 @@
 
           $('#pictur, #avalanche, #chess, #resume').mouseover(function (e) {
             window.clearTimeout(timeOut);
-            $('.img-holder').attr('src', 'img/' + e.currentTarget.id + '.gif').removeClass('img-circle');
+            $('.img-holder').attr('src', 'img/' + e.currentTarget.id + '.gif')
+                            .removeClass('img-circle')
+                            .css('border', 'none');
           });
 
           $('#pictur, #avalanche, #chess, #resume').mouseout(function (e) {
             timeOut = window.setTimeout(function () {
-              $('.img-holder').attr('src', 'img/me3.jpg').addClass('img-circle');
+              $('.img-holder').attr('src', 'img/me3.jpg')
+                              .addClass('img-circle')
+                              .css('border', '');
             }, 300);
           });
         });
