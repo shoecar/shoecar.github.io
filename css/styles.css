@@ -47,9 +47,9 @@ body {
   margin: 10px 0;
 }
 
-.portrait {
-  width: 150px;
-  height: 150px;
+.img-holder {
+  width: 200px;
+  height: 200px;
   border: 2px solid #eee;
   -webkit-filter: grayscale(0%);
   filter: grayscale(0%);

@@ -32,7 +32,7 @@
         </div>
 
         <div class="description">
-          <img src="img/me3.jpg" alt="Me!" class="portrait img-circle"/>
+          <img src="img/me3.jpg" alt="Me!" class="img-holder img-circle"/>
           <p >Hello,<br>
             my name is Tad Schukar.<br>
             I am a web developer<br>
@@ -45,9 +45,9 @@
             <div class="projects">
               <p>Projects</p>
               <div class="project-list">
-                <div><a href="http://pictur.xyz" target="_blank" class="hvr-underline">Pictur</a></div>
-                <div><a href="http://shoecar.github.io/avalanche/" target="_blank" class="hvr-underline">Avalanche</a></div>
-                <div><a href="https://github.com/shoecar/chess" target="_blank" class="hvr-underline">Chess</a></div>
+                <div><a href="http://pictur.xyz" id="pictur" target="_blank" class="hvr-underline">Pictur</a></div>
+                <div><a href="http://shoecar.github.io/avalanche/" id="avalanche" target="_blank" class="hvr-underline">Avalanche</a></div>
+                <div><a href="https://github.com/shoecar/chess" id="chess" target="_blank" class="hvr-underline">Chess</a></div>
               </div>
             </div>
           </div>
@@ -66,6 +66,10 @@
     <script type="text/javascript">
         $('a').click(function (e) {
           e.currentTarget.blur();
+        });
+
+        $('#avalanche').hover(function (e) {
+          $('.img-holder').html('<img src="avalanche" class="img-holder img-circle"')
         });
     </script>
     <script>
