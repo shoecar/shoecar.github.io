@@ -11,7 +11,6 @@ $('.carousel').jCarouselLite({
 $(function () {
   $('.me3').trigger('click');
   window.setTimeout(function () {
-    $('.bg-overlay').css('z-index', '-1');
     $('.bg').css('z-index', '-2');
   }, 500);
 
