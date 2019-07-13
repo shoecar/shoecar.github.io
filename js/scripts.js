@@ -1,7 +1,3 @@
-$('a').click(function (e) {
-  e.currentTarget.blur();
-});
-
 $('.carousel').jCarouselLite({
     speed: 500,
     visible: 1,
@@ -14,21 +10,19 @@ $('.carousel').jCarouselLite({
 
 $(function () {
   $('.me3').trigger('click');
-  $('.img-holder').css('display', 'none');
   window.setTimeout(function () {
     $('.bg-overlay').css('z-index', '-1');
     $('.bg').css('z-index', '-2');
-    $('.img-holder').fadeIn();
   }, 500);
-  var timeOut;
 
-  $('#pictur, #avalanche, #chess').mouseenter(function (e) {
-    window.clearTimeout(timeOut);
-    $('.' + e.currentTarget.id).trigger('click');
+  var backToMainImg;
+  $('#pictur, #avalanche, #chess').mouseenter(function (event) {
+    window.clearTimeout(backToMainImg);
+    $('.' + event.currentTarget.id).trigger('click');
   });
 
-  $('#pictur, #avalanche, #chess').mouseout(function (e) {
-    timeOut = window.setTimeout(function () {
+  $('#pictur, #avalanche, #chess').mouseout(function (event) {
+    backToMainImg = window.setTimeout(function () {
       $('.me3').trigger('click');
     }, 500);
   });
