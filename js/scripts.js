@@ -1,3 +1,5 @@
+const carouselHoverQuery = '#pictur, #avalanche, #chess';
+
 $('.carousel').jCarouselLite({
     speed: 500,
     visible: 1,
@@ -9,20 +11,20 @@ $('.carousel').jCarouselLite({
 });
 
 $(function () {
-  $('.me3').trigger('click');
-  window.setTimeout(function () {
-    $('.bg').css('z-index', '-2');
-  }, 500);
-
-  var backToMainImg;
-  $('#pictur, #avalanche, #chess').mouseenter(function (event) {
-    window.clearTimeout(backToMainImg);
-    $('.' + event.currentTarget.id).trigger('click');
-  });
-
-  $('#pictur, #avalanche, #chess').mouseout(function (event) {
-    backToMainImg = window.setTimeout(function () {
-      $('.me3').trigger('click');
+    $('.me3').trigger('click');
+    window.setTimeout(function () {
+        $('.bg').css('z-index', '-2');
     }, 500);
-  });
+
+    var backToMainImg;
+    $(carouselHoverQuery).mouseenter(function (event) {
+        window.clearTimeout(backToMainImg);
+        $('.' + event.currentTarget.id).trigger('click');
+    });
+
+    $(carouselHoverQuery).mouseout(function (event) {
+        backToMainImg = window.setTimeout(function () {
+            $('.me3').trigger('click');
+        }, 500);
+    });
 });
