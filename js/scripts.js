@@ -1,6 +1,6 @@
 const slideTimeout = 500;
-const homeSlide = 'me3';
-const slides = ['extole', 'flexport', 'me3', 'pictur', 'avalanche', 'chess'];
+const homeSlide = 'me';
+const slides = ['extole', 'flexport', 'me', 'pictur', 'avalanche', 'chess'];
 const carouselHoverQuery = slides.map(slide => `#${slide}`).join(', ');
 
 let slideHomeTimeout;
@@ -10,7 +10,8 @@ function triggerSlide(slide) {
 }
 
 function revealPageContent() {
-    $('.bg').css('z-index', '-2');
+    $('.background-overlay').css('z-index', '-1');
+    $('.background').css('z-index', '-2');
 }
 
 function slideHome(event) {
@@ -44,11 +45,11 @@ function initalize() {
         btnGo: createBtnGos(slides)
     });
 
-    triggerSlide(homeSlide);
-    window.setTimeout(revealPageContent, slideTimeout);
-
     $carouselHoverElements.mouseenter(slideToHovered);
     $carouselHoverElements.mouseout(slideHome);
+
+    triggerSlide(homeSlide);
+    window.setTimeout(revealPageContent, slideTimeout);
 }
 
 $(initalize);
