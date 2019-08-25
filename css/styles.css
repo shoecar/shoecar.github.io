@@ -62,6 +62,13 @@ body {
   box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.5);
 }
 
+.img-holder-logo {
+  top: 50%;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .img-circle {
   border: 2px solid #eee;
 }

@@ -1,30 +1,54 @@
-const carouselHoverQuery = '#pictur, #avalanche, #chess';
+const slideTimeout = 500;
+const homeSlide = 'me3';
+const slides = ['extole', 'flexport', 'me3', 'pictur', 'avalanche', 'chess'];
+const carouselHoverQuery = slides.map(slide => `#${slide}`).join(', ');
 
-$('.carousel').jCarouselLite({
-    speed: 500,
-    visible: 1,
-    vertical: true,
-    mousewheel: true,
-    btnNext: '.btn-slide .next',
-    btnPrev: '.btn-slide .prev',
-    btnGo: ['.btn-slide .1', '.btn-slide .2', '.btn-slide .3', '.btn-slide .4', '.btn-slide .5']
-});
+let slideHomeTimeout;
 
-$(function () {
-    $('.me3').trigger('click');
-    window.setTimeout(function () {
-        $('.bg').css('z-index', '-2');
-    }, 500);
+function triggerSlide(slide) {
+    $(`.${slide || homeSlide}`).trigger('click');
+}
 
-    var backToMainImg;
-    $(carouselHoverQuery).mouseenter(function (event) {
-        window.clearTimeout(backToMainImg);
-        $('.' + event.currentTarget.id).trigger('click');
+function revealPageContent() {
+    $('.bg').css('z-index', '-2');
+}
+
+function slideHome(event) {
+    slideHomeTimeout = window.setTimeout(triggerSlide, slideTimeout);
+}
+
+function slideToHovered(event) {
+    window.clearTimeout(slideHomeTimeout);
+    triggerSlide(event.currentTarget.id);
+}
+
+function createBtnGos(orderedBtnSlides) {
+    const $btnSlideContainer = $('.btn-slide');
+    return orderedBtnSlides.map(function (slide, index) {
+        $btnSlideContainer.append(`<a class="${slide} go ${index}"></a>`);
+        return `.btn-slide .${index}`;
+    });
+}
+
+function initalize() {
+    const $carouselElement = $('.carousel');
+    const $carouselHoverElements = $(carouselHoverQuery);
+
+    $carouselElement.jCarouselLite({
+        speed: slideTimeout,
+        visible: 1,
+        vertical: true,
+        mousewheel: true,
+        btnNext: '.btn-slide .next',
+        btnPrev: '.btn-slide .prev',
+        btnGo: createBtnGos(slides)
     });
 
-    $(carouselHoverQuery).mouseout(function (event) {
-        backToMainImg = window.setTimeout(function () {
-            $('.me3').trigger('click');
-        }, 500);
-    });
-});
+    triggerSlide(homeSlide);
+    window.setTimeout(revealPageContent, slideTimeout);
+
+    $carouselHoverElements.mouseenter(slideToHovered);
+    $carouselHoverElements.mouseout(slideHome);
+}
+
+$(initalize);
