@@ -1,8 +1,8 @@
 a:link, a:visited { color: #eee; }
 a:hover, a:active { color: #fff; text-decoration: none; }
 
-a:hover.resume-color { color: #e73e33; }
-a:hover.email-color { color: #5399a8; }
+a:hover.resume-color { color: #45818e; }
+a:hover.email-color { color: #db493c; }
 a:hover.github-color { color: #111111; }
 a:hover.linkedin-color { color: #0077b5; }
 
