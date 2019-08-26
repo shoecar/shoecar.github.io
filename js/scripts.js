@@ -1,12 +1,8 @@
 const slideTimeout = 500;
-const homeSlide = 'me';
-const slides = ['extole', 'flexport', 'me', 'pictur', 'avalanche', 'chess'];
-const carouselHoverQuery = slides.map(slide => `#${slide}`).join(', ');
+let slideHomeTimeoutId;
 
-let slideHomeTimeout;
-
-function triggerSlide(slide) {
-    $(`.${slide || homeSlide}`).trigger('click');
+function slideTo(slide) {
+    $(`.${slide}`).trigger('click');
 }
 
 function revealPageContent() {
@@ -14,25 +10,30 @@ function revealPageContent() {
     $('.background').css('z-index', '-2');
 }
 
-function slideHome(event) {
-    slideHomeTimeout = window.setTimeout(triggerSlide, slideTimeout);
-}
-
 function slideToHovered(event) {
-    window.clearTimeout(slideHomeTimeout);
-    triggerSlide(event.currentTarget.id);
+    window.clearTimeout(slideHomeTimeoutId);
+    slideTo(event.currentTarget.id);
 }
 
-function createBtnGos(orderedBtnSlides) {
+function slideHomeOnDelayCallback(homeSlide) {
+    return function (event) {
+        slideHomeTimeoutId = window.setTimeout(slideTo.bind(null, homeSlide), slideTimeout);
+    }
+}
+
+function createBtnGos(orderedBtnSlideNames) {
     const $btnSlideContainer = $('.btn-slide');
-    return orderedBtnSlides.map(function (slide, index) {
-        $btnSlideContainer.append(`<a class="${slide} go ${index}"></a>`);
+    return orderedBtnSlideNames.map(function (slideName, index) {
+        $btnSlideContainer.append(`<a class="${slideName} go ${index}"></a>`);
         return `.btn-slide .${index}`;
     });
 }
 
 function initalize() {
     const $carouselElement = $('.carousel');
+    const slideNames = $carouselElement.find('li').toArray().map(slide => slide.dataset.slideName);
+    const homeSlide = $carouselElement.find('ul')[0].dataset.homeSlide;
+    const carouselHoverQuery = slideNames.map(slideName => `#${slideName}`).join(', ');
     const $carouselHoverElements = $(carouselHoverQuery);
 
     $carouselElement.jCarouselLite({
@@ -42,13 +43,13 @@ function initalize() {
         mousewheel: true,
         btnNext: '.btn-slide .next',
         btnPrev: '.btn-slide .prev',
-        btnGo: createBtnGos(slides)
+        btnGo: createBtnGos(slideNames)
     });
 
     $carouselHoverElements.mouseenter(slideToHovered);
-    $carouselHoverElements.mouseout(slideHome);
+    $carouselHoverElements.mouseout(slideHomeOnDelayCallback(homeSlide));
 
-    triggerSlide(homeSlide);
+    slideTo(homeSlide);
     window.setTimeout(revealPageContent, slideTimeout);
 }
 
